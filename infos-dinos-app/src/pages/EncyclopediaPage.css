@@ -1,0 +1,24 @@
+.encyclopedia-container {
+  padding: 20px;
+  /* font-family will be inherited from body ('Open Sans') */
+}
+
+.encyclopedia-title {
+  font-size: 2.2em; /* Remains a good size for a title */
+  margin-bottom: 30px;
+  text-align: center;
+  color: #2c3e50; /* Using a color from DinosaurCard for consistency */
+}
+
+.encyclopedia-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); /* Slightly increased minmax for better spacing with new card styles */
+  gap: 25px; /* Increased gap for better separation of new card styles */
+  justify-content: center;
+}
+
+/* 
+  Removed .dinosaur-card, .dinosaur-card h2, and placeholder styles from here.
+  These are now handled by infos-dinos-app/src/components/DinosaurCard.css 
+  to keep card-specific styling encapsulated with the DinosaurCard component.
+*/
