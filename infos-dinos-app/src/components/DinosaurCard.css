@@ -1,0 +1,83 @@
+/* DinosaurCard.css */
+.dinosaur-card {
+  background-color: #ffffff; /* White background for the card */
+  border: 1px solid #e0e0e0; /* Light grey border */
+  border-radius: 8px; /* Rounded corners */
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Make card take full height of grid cell */
+}
+
+.dinosaur-card:hover {
+  transform: translateY(-5px); /* Slight lift on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+}
+
+.dinosaur-card h2 {
+  font-size: 1.75em; /* Larger name */
+  color: #2c3e50; /* Dark blue-grey for the name */
+  margin-top: 0;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.dinosaur-card p {
+  font-size: 0.95em;
+  line-height: 1.6;
+  margin-bottom: 10px;
+  color: #555; /* Slightly lighter text for details */
+}
+
+.dinosaur-card p strong {
+  color: #333; /* Darker text for labels */
+}
+
+.dinosaur-card h3 {
+  font-size: 1.2em;
+  color: #34495e; /* Another shade of dark blue-grey */
+  margin-top: 15px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 5px;
+}
+
+.dinosaur-illustration-placeholder,
+.dinosaur-human-comparison-placeholder {
+  background-color: #ecf0f1; /* Light grey background for placeholders */
+  border: 1px dashed #bdc3c7; /* Dashed border */
+  text-align: center;
+  padding: 30px 15px; /* More padding */
+  margin: 15px 0;
+  min-height: 120px; /* Increased min-height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #7f8c8d; /* Grey text for placeholder */
+  font-style: italic;
+  border-radius: 4px; /* Rounded corners for placeholder */
+}
+
+.diet-info {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+
+.diet-icon {
+  font-size: 1.5em; /* Make icon larger */
+  margin-left: 8px;
+}
+
+/* Specific styles for diet icons if we use actual emojis or characters */
+.diet-icon.carnivore {
+  color: #c0392b; /* Reddish for carnivore */
+}
+.diet-icon.herbivore {
+  color: #27ae60; /* Greenish for herbivore */
+}
+.diet-icon.omnivore {
+  color: #f39c12; /* Orange for omnivore */
+}

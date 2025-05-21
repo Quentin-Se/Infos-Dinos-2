@@ -1,0 +1,30 @@
+.navbar {
+  background-color: #333; /* Dark background */
+  padding: 10px 20px;
+  display: flex;
+  justify-content: flex-start; /* Align links to the start */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.nav-link {
+  color: white;
+  padding: 8px 15px;
+  text-decoration: none;
+  margin-right: 10px; /* Space between links */
+  font-size: 1.1em;
+  border-radius: 4px; /* Slightly rounded corners for links */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-link:hover {
+  background-color: #555; /* Darker background on hover */
+  color: #lightgrey; /* Lighter text on hover */
+}
+
+/* Optional: Style for an active link if you add that functionality later */
+/*
+.nav-link.active {
+  background-color: #007bff;
+  color: white;
+}
+*/

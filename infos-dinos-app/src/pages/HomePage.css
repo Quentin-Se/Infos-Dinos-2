@@ -1,0 +1,40 @@
+.homepage-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh; /* Take up a good portion of the viewport height */
+  text-align: center;
+  padding: 20px;
+  font-family: 'Arial', sans-serif; /* Clear and readable font */
+}
+
+.homepage-headline {
+  font-size: 2.5em; /* Example font size */
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.homepage-intro {
+  font-size: 1.2em; /* Example font size */
+  line-height: 1.6;
+  margin-bottom: 30px;
+  max-width: 600px; /* Limit width for better readability */
+  color: #555;
+}
+
+.homepage-cta {
+  display: inline-block;
+  padding: 12px 25px;
+  background-color: #007bff; /* Example button color */
+  color: white;
+  border-radius: 5px;
+  text-decoration: none; /* Remove underline from link */
+  font-size: 1.1em;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.homepage-cta:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}

@@ -1,0 +1,70 @@
+const mockDinosaurs = [
+  {
+    id: 1,
+    nomComplet: "Tyrannosaurus Rex (T-Rex)",
+    famille: "Théropodes / Tyrannosauridae",
+    periodeGeologique: "Crétacé supérieur – il y a ~68-66 millions d'années",
+    lieuDecouverte: "Amérique du Nord (ouest)",
+    anneeDecouverte: "Découvert par Barnum Brown en 1902, nommé par Henry Fairfield Osborn en 1905",
+    regimeAlimentaire: { type: "Carnivore", icone: "🥩" },
+    tailleMoyenne: "Longueur: 12-13m, Hauteur (hanches): 3.6-4m",
+    poidsEstime: "8-14 tonnes",
+    caracteristiquesMarquantes: "Tête massive, mâchoires puissantes avec des dents de 30cm, bras très courts à deux doigts",
+    anecdote: "Le T-Rex avait une morsure trois fois plus puissante que celle d'un lion. Ses bras courts restent un mystère pour les scientifiques.",
+    breveDescription: "Le Tyrannosaurus Rex, souvent appelé T-Rex, était l'un des plus grands carnassiers terrestres. Connu pour sa férocité, il dominait son écosystème.",
+    illustrationUrl: "placeholder_trex_illustration.jpg",
+    comparaisonHumainUrl: "placeholder_trex_comparison.jpg",
+    statutSpecial: "Roi des Dinosaures"
+  },
+  {
+    id: 2,
+    nomComplet: "Velociraptor mongoliensis (Vélociraptor)",
+    famille: "Théropodes / Dromaeosauridae",
+    periodeGeologique: "Crétacé supérieur – il y a ~75-71 millions d'années",
+    lieuDecouverte: "Mongolie, Chine",
+    anneeDecouverte: "Découvert par Peter Kaisen en 1923, nommé par Henry Fairfield Osborn en 1924",
+    regimeAlimentaire: { type: "Carnivore", icone: "🥩" },
+    tailleMoyenne: "Longueur: 1.8-2m, Hauteur (hanches): 0.5m",
+    poidsEstime: "15-20 kg",
+    caracteristiquesMarquantes: "Plumes, griffe rétractile en forme de faucille sur chaque pied, intelligence probable",
+    anecdote: "Contrairement à sa représentation populaire, le Vélociraptor était de la taille d'une dinde et couvert de plumes.",
+    breveDescription: "Le Vélociraptor était un petit prédateur agile et intelligent, chassant probablement en meute. Il est célèbre pour sa griffe en forme de faucille.",
+    illustrationUrl: "placeholder_velociraptor_illustration.jpg",
+    comparaisonHumainUrl: "placeholder_velociraptor_comparison.jpg",
+    etatConservation: "Éteint"
+  },
+  {
+    id: 3,
+    nomComplet: "Ankylosaurus magniventris (Ankylosaure)",
+    famille: "Thyréophores / Ankylosauridae",
+    periodeGeologique: "Crétacé supérieur – il y a ~68-66 millions d'années",
+    lieuDecouverte: "Amérique du Nord (ouest)",
+    anneeDecouverte: "Découvert par Barnum Brown en 1906, nommé par lui en 1908",
+    regimeAlimentaire: { type: "Herbivore", icone: "🌿" },
+    tailleMoyenne: "Longueur: 6-8m, Hauteur: 1.7m",
+    poidsEstime: "4-8 tonnes",
+    caracteristiquesMarquantes: "Corps cuirassé de plaques osseuses (ostéodermes), queue en forme de massue",
+    anecdote: "L'Ankylosaure était si bien protégé que même les grands prédateurs comme le T-Rex avaient du mal à le chasser.",
+    breveDescription: "L'Ankylosaure était un dinosaure herbivore quadrupède, célèbre pour son armure corporelle massive et sa queue massue, utilisée pour la défense.",
+    illustrationUrl: "placeholder_ankylosaurus_illustration.jpg",
+    comparaisonHumainUrl: "placeholder_ankylosaurus_comparison.jpg"
+  },
+  {
+    id: 4,
+    nomComplet: "Brachiosaurus altithorax (Brachiosaure)",
+    famille: "Sauropodes / Brachiosauridae",
+    periodeGeologique: "Jurassique supérieur – il y a ~154-153 millions d'années",
+    lieuDecouverte: "Amérique du Nord, Afrique (incertain pour l'Afrique, possiblement Giraffatitan)",
+    anneeDecouverte: "Découvert par Elmer S. Riggs en 1900, nommé par lui en 1903",
+    regimeAlimentaire: { type: "Herbivore", icone: "🌿" },
+    tailleMoyenne: "Longueur: 20-22m, Hauteur: 12-13m (tête levée)",
+    poidsEstime: "30-50 tonnes",
+    caracteristiquesMarquantes: "Très long cou, membres antérieurs plus longs que les postérieurs, narines sur le dessus de la tête",
+    anecdote: "Le Brachiosaure pouvait probablement atteindre les feuilles des arbres jusqu'à 13 mètres de hauteur grâce à son long cou.",
+    breveDescription: "Le Brachiosaure était un immense dinosaure herbivore, l'un des plus hauts connus, caractérisé par son cou de girafe et ses membres antérieurs allongés.",
+    illustrationUrl: "placeholder_brachiosaurus_illustration.jpg",
+    comparaisonHumainUrl: "placeholder_brachiosaurus_comparison.jpg"
+  }
+];
+
+export default mockDinosaurs;
