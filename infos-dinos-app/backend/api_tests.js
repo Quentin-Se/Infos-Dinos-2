@@ -15,6 +15,7 @@ let originalDinosaursData = '';
 let testDinoId = null;
 let authToken = null; // To store the JWT
 
+
 const log = (message) => console.log(message);
 const pass = (testName) => log(`✅ PASS: ${testName}`);
 const fail = (testName, error) => log(`❌ FAIL: ${testName}\n   Error: ${error.message || error}\n   ${error.stack ? 'Stack: ' + error.stack : ''}`);
@@ -166,7 +167,6 @@ async function testPutDinosaures() {
     }
     let success = true;
     const updatedDinoData = { nomComplet: "Testosaurus Updated", famille: "Testosauridae Updated" };
-
     // Attempt without Authorization header
     try {
         const resNoAuth = await fetch(`${API_BASE_URL}/${testDinoId}`, { method: 'PUT', body: JSON.stringify(updatedDinoData), headers: { 'Content-Type': 'application/json' } });
@@ -232,7 +232,6 @@ async function testDeleteDinosaures() {
         return false;
     }
     let success = true;
-
     // Attempt without Authorization header
     try {
         const resNoAuth = await fetch(`${API_BASE_URL}/${testDinoId}`, { method: 'DELETE' });
