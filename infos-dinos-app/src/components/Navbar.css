@@ -21,6 +21,32 @@
   color: #lightgrey; /* Lighter text on hover */
 }
 
+/* Styling for nav items that are buttons */
+.nav-button {
+  background: none;
+  border: none;
+  color: white;
+  padding: 8px 15px;
+  text-decoration: none;
+  margin-right: 10px;
+  font-size: 1.1em;
+  font-family: inherit; /* Inherit font from navbar */
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-button:hover {
+  background-color: #555;
+  color: #lightgrey;
+}
+
+.logout-button {
+  /* Specific styles if needed, e.g., different color */
+  /* For now, it will inherit .nav-button and .nav-link styles if applied together */
+}
+
+
 /* Optional: Style for an active link if you add that functionality later */
 /*
 .nav-link.active {
