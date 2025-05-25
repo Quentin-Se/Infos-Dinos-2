@@ -32,6 +32,13 @@ const AdminPage = () => {
   const [formError, setFormError] = useState(null); 
   const { token } = useAuth(); // Get token from AuthContext
 
+  // Login state variables
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [loginError, setLoginError] = useState(null);
+  const [isLoginLoading, setIsLoginLoading] = useState(false);
+
   const fetchDinosaures = async () => {
     setIsLoading(true);
       try {
@@ -60,8 +67,48 @@ const AdminPage = () => {
     };
 
   useEffect(() => {
-    fetchDinosaures();
-  }, []);
+    if (isAuthenticated) {
+      fetchDinosaures();
+    }
+  }, [isAuthenticated]);
+
+  const handleLoginSubmit = async (event) => {
+    event.preventDefault();
+    setIsLoginLoading(true);
+    setLoginError(null);
+
+    try {
+      const response = await fetch('/api/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, password }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log('Login successful, token:', data.token);
+        setIsAuthenticated(true);
+        setUsername('');
+        setPassword('');
+      } else {
+        setIsAuthenticated(false);
+        try {
+          const errorData = await response.json();
+          setLoginError(errorData.message || 'Login failed');
+        } catch (e) {
+          setLoginError('Login failed. Please check credentials or server connection.');
+        }
+      }
+    } catch (err) {
+      console.error("Login API error:", err);
+      setIsAuthenticated(false);
+      setLoginError('Login failed. Please check credentials or server connection.');
+    } finally {
+      setIsLoginLoading(false);
+    }
+  };
 
   const handleOpenAddForm = () => { // Renamed and modified for clarity
     setEditingDinosaurId(null); // Ensure it's add mode
@@ -178,11 +225,48 @@ const AdminPage = () => {
     }
   };
 
-  if (isLoading && !showForm) { // Use new state name
+  if (!isAuthenticated) {
+    return (
+      <div className="admin-page-container login-container">
+        <h1>Connexion Administrateur</h1>
+        <form onSubmit={handleLoginSubmit} className="login-form">
+          <div>
+            <label htmlFor="username">Nom d'utilisateur:</label>
+            <input
+              id="username"
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+              disabled={isLoginLoading}
+            />
+          </div>
+          <div>
+            <label htmlFor="password">Mot de passe:</label>
+            <input
+              id="password"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              disabled={isLoginLoading}
+            />
+          </div>
+          <button type="submit" className="admin-button login-button" disabled={isLoginLoading}>
+            {isLoginLoading ? 'Connexion en cours...' : 'Se connecter'}
+          </button>
+          {loginError && <p className="error-message login-error-message">{loginError}</p>}
+        </form>
+      </div>
+    );
+  }
+
+  // Below is the existing UI for dinosaur management, shown only if authenticated
+  if (isLoading && !showForm) { 
     return <div className="admin-page-container"><p>Chargement des dinosaures...</p></div>;
   }
 
-  if (error && !isLoading && !showForm) { // Use new state name
+  if (error && !isLoading && !showForm) { 
     return (
       <div className="admin-page-container">
         <p className="error-message">Erreur: {error}</p>
@@ -197,15 +281,15 @@ const AdminPage = () => {
       
       {error && !showForm && <p className="error-message page-error-message">Erreur: {error}</p>}
 
-      {!showForm ? ( // Use new state name
-        <button className="admin-button add-button" onClick={handleOpenAddForm}> {/* Use new handler */}
+      {!showForm ? ( 
+        <button className="admin-button add-button" onClick={handleOpenAddForm}> 
           Ajouter un Dinosaure
         </button>
       ) : (
         <div className="form-container">
           <h2>{editingDinosaurId ? "Modifier le Dinosaure" : "Ajouter un nouveau Dinosaure"}</h2>
           {formError && <p className="error-message form-error-message">{formError}</p>}
-          <form onSubmit={handleFormSubmit}> {/* Use new handler */}
+          <form onSubmit={handleFormSubmit}> 
             <label>Nom Complet: <input type="text" name="nomComplet" value={currentDinoData.nomComplet} onChange={handleCurrentDinoDataChange} required /></label>
             <label>Famille: <input type="text" name="famille" value={currentDinoData.famille} onChange={handleCurrentDinoDataChange} required /></label>
             <label>Période Géologique: <input type="text" name="periodeGeologique" value={currentDinoData.periodeGeologique} onChange={handleCurrentDinoDataChange} /></label>
