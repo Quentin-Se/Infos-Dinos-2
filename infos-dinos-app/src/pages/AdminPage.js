@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { useAuth } from '../context/AuthContext'; // Import useAuth
 import './AdminPage.css'; // Import the CSS file
 
-const API_KEY = "your-secret-api-key"; // Defined API Key
+// API_KEY constant is removed
 
 const initialDinoFormState = { 
   nomComplet: '',
@@ -27,8 +28,9 @@ const AdminPage = () => {
   const [error, setError] = useState(null); // For general page errors
   const [showForm, setShowForm] = useState(false); // Renamed
   const [currentDinoData, setCurrentDinoData] = useState(initialDinoFormState); // Renamed
-  const [editingDinosaurId, setEditingDinosaurId] = useState(null); // Added for edit mode
-  const [formError, setFormError] = useState(null); // For add/edit form errors
+  const [editingDinosaurId, setEditingDinosaurId] = useState(null); 
+  const [formError, setFormError] = useState(null); 
+  const { token } = useAuth(); // Get token from AuthContext
 
   // Login state variables
   const [username, setUsername] = useState('');
@@ -39,7 +41,6 @@ const AdminPage = () => {
 
   const fetchDinosaures = async () => {
     setIsLoading(true);
-    // setError(null); // Clear previous page errors - will be cleared more strategically
       try {
         const response = await fetch('/api/dinosaures');
         if (!response.ok) {
@@ -163,7 +164,7 @@ const AdminPage = () => {
         method: method,
         headers: {
           'Content-Type': 'application/json',
-          'X-API-Key': API_KEY // Added API Key to header
+          'Authorization': `Bearer ${token}` // Use JWT for Authorization
         },
         body: JSON.stringify(currentDinoData), 
       });
@@ -197,8 +198,8 @@ const AdminPage = () => {
     try {
       const response = await fetch(`/api/dinosaures/${dinosaurId}`, {
         method: 'DELETE',
-        headers: { // Added headers for DELETE
-          'X-API-Key': API_KEY
+        headers: { // Use JWT for Authorization
+          'Authorization': `Bearer ${token}`
         }
       });
 
