@@ -1,11 +1,19 @@
 const express = require('express');
 const fs = require('fs');
 const path = require('path'); // Added for robust path handling
+const bcrypt = require('bcryptjs');
 
 const app = express();
 const port = 3001;
 const DINOSAURS_FILE = path.join(__dirname, 'dinosaurs.json');
 const EXPECTED_API_KEY = "your-secret-api-key"; // Define the API key
+
+// bcrypt constants
+const saltRounds = 10;
+const adminUsername = "adminDino";
+const adminPassword = "adminDino123!";
+// In a production environment, this hash should be pre-generated and stored securely, not generated on server start, and the plaintext password should not be in the code.
+const adminPasswordHash = bcrypt.hashSync(adminPassword, saltRounds);
 
 // Middleware to parse JSON bodies
 app.use(express.json());
@@ -193,6 +201,34 @@ app.delete('/api/dinosaures/:id', apiKeyAuth, (req, res) => { // Added apiKeyAut
       res.status(200).json({ message: `Dinosaur with ID ${dinosaurId} deleted successfully.` }); // Changed to 200 with message for clarity
     });
   });
+});
+
+// POST /api/auth/login - Admin login
+app.post('/api/auth/login', (req, res) => {
+  const { username, password } = req.body;
+
+  if (!username || !password) {
+    return res.status(400).json({ message: "Username and password are required" });
+  }
+
+  if (username === adminUsername) {
+    bcrypt.compare(password, adminPasswordHash, (err, result) => {
+      if (err) {
+        console.error("Error comparing password:", err);
+        return res.status(500).json({ message: "Error during authentication" });
+      }
+      if (result) {
+        // Passwords match
+        res.status(200).json({ message: "Login successful", token: "dummy-token" });
+      } else {
+        // Passwords don't match
+        res.status(401).json({ message: "Invalid credentials" });
+      }
+    });
+  } else {
+    // Username doesn't match
+    res.status(401).json({ message: "Invalid credentials" });
+  }
 });
 
 app.listen(port, () => {
