@@ -1,0 +1,174 @@
+.admin-page-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.admin-page-container h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.admin-button {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-left: 5px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.add-button {
+  background-color: #28a745; /* Green */
+  color: white;
+  display: block;
+  margin: 0 auto 20px auto; /* Center the button and add bottom margin */
+  min-width: 200px; /* Ensure button is reasonably sized */
+}
+
+.add-button:hover {
+  background-color: #218838;
+}
+
+.edit-button {
+  background-color: #ffc107; /* Yellow */
+  color: #333;
+}
+
+.edit-button:hover {
+  background-color: #e0a800;
+}
+
+.delete-button {
+  background-color: #dc3545; /* Red */
+  color: white;
+}
+
+.delete-button:hover {
+  background-color: #c82333;
+}
+
+.dinosaur-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.dinosaur-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ddd;
+  margin-bottom: 8px;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+}
+
+.dinosaur-list-item span {
+  flex-grow: 1;
+  font-size: 16px;
+}
+
+.dinosaur-actions {
+  display: flex;
+  align-items: center;
+}
+
+.loading-message, .error-message {
+  text-align: center;
+  font-size: 18px;
+  padding: 20px;
+}
+
+.error-message {
+  color: #dc3545; /* Red for errors */
+}
+
+/* Styles for the Add/Edit Form Container */
+.form-container {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.form-container h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.form-container form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #555;
+}
+
+.form-container form input[type="text"],
+.form-container form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box; /* Ensures padding doesn't affect overall width */
+  font-size: 14px;
+}
+
+.form-container form textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.form-container form fieldset {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+}
+
+.form-container form fieldset legend {
+  font-weight: bold;
+  color: #555;
+  padding: 0 5px;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end; /* Align buttons to the right */
+  gap: 10px; /* Space between buttons */
+  margin-top: 20px;
+}
+
+.submit-button {
+  background-color: #007bff; /* Blue */
+  color: white;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+.cancel-button {
+  background-color: #6c757d; /* Gray */
+  color: white;
+}
+
+.cancel-button:hover {
+  background-color: #5a6268;
+}
+
+.form-error-message {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  text-align: center;
+}
