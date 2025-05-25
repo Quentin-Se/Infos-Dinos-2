@@ -20,20 +20,11 @@ const Navbar = () => {
       <Link to="/encyclopedie" className="nav-link">
         Encyclopédie
       </Link>
-      {/* Conditionally render Admin link - good practice though not explicitly asked for in this step */}
+      {/* "Admin" and "Connexion Admin" links are removed. */}
       {isAuthenticated && (
-         <Link to="/admin" className="nav-link">
-            Admin
-         </Link>
-      )}
-      {isAuthenticated ? (
         <button onClick={handleLogout} className="nav-link nav-button logout-button">
           Déconnexion
         </button>
-      ) : (
-        <Link to="/login" className="nav-link">
-          Connexion Admin
-        </Link>
       )}
     </nav>
   );
